@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compro Oro</title>
+    <style>
+        .phone-number a {
+            color: #ffffff; /* Color del texto del enlace */
+            text-decoration: none; /* Quita el subrayado */
+            font-size: 16px; /* Tamaño del texto */
+        }
+    
+        .phone-number a:hover {
+            text-decoration: underline; /* Añade subrayado al pasar el ratón */
+        }
+    </style>
+    <style>
+        /* Estilos globales */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            background-color: #003E25;
+        }
+
+        /* Encabezado superior */
+        .top-bar {
+            background-color: #003E25;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #d4af37; /* Dorado */
+            font-size: 14px;
+        }
+
+        .lang-switch {
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        /* Menú de navegación */
+        .main-menu {
+            background-color: #003E25;
+            padding: 0px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid #444;
+        }
+
+        .main-menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .main-menu li {
+            margin: 0 100px;
+            display: flex;
+            align-items: center;
+        }
+
+        .main-menu a {
+            text-decoration: none;
+            color: #d4af37; /* Dorado */
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .main-menu a:hover {
+            color: #fff;
+        }
+
+        /* Logo centrado */
+        .logo-container {
+            margin: 0 40px;
+            position: relative;
+        }
+
+        .logo {
+            height: 80px;
+            display: block;
+        }
+
+        /* Botón "Pedir Cita" */
+        .appointment-btn {
+            padding: 8px 16px;
+            background-color: transparent;
+            color: #d4af37; /* Dorado */
+            border: 1px solid #d4af37;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .appointment-btn:hover {
+            background-color: #d4af37;
+            color: #1b1b35;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature-item h2 {
+            color: #c69e6e;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            color: #555;
+            font-size: 16px;
+        }
+
+        .feature-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado superior -->
+    <header class="top-bar">
+        <div class="phone-number">
+            <a href="tel:+34111111111" onclick="return confirm('¿Quieres llamar al +34 111 111 111?')">
+                +34 111 111 111
+            </a>
+        </div>
+        <button class="appointment-btn">PEDIR CITA</button>
+    </header>
+
+    <!-- Menú de navegación -->
+    <nav class="main-menu">
+        <ul>
+            <li><a href="#">Nosotros</a></li>
+            <li><a href="#">Venta de Joyas</a></li>
+            <li class="logo-container">
+                <img src="/static/logo.png" alt="Logo" class="logo">
+            </li>
+            <li><a href="#">Venta/Empeños</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="features">
+        <div class="feature-item">
+            <h2>Profesionalidad</h2>
+            <p>
+                Los clientes de la cadena Comprem Or son atendidos por expertos altamente cualificados.
+                La gran mayoría provienen del mundo de la joyería, cosa que nos permite tasar y valorar
+                cada pieza de oro, plata o diamantes en el momento y de forma totalmente gratuita.
+            </p>
+        </div>
+        <div class="feature-image">
+            <img src="https://via.placeholder.com/400x300" alt="Imagen profesionalidad">
+        </div>
+        <div class="feature-image">
+            <img src="https://via.placeholder.com/400x300" alt="Imagen experiencia">
+        </div>
+        <div class="feature-item">
+            <h2>Experiencia</h2>
+            <p>
+                Comprem Or es la primera compañía en el sector de la compra de oro en Cataluña.
+                Es la empresa con más experiencia, y que te ofrece las mejores tasaciones del mercado
+                en piezas de oro, plata, diamantes y relojes de alta gama.
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>
