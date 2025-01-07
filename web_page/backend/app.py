@@ -8,8 +8,6 @@ app = Flask(__name__,
 # Ruta principal (home)
 @app.route("/")
 def home():
-    if request.host.startswith("www."):
-        return redirect("https://lacentraldeloro.com", code=301)
     return render_template("index.html")
 
 # Ruta de ejemplo
