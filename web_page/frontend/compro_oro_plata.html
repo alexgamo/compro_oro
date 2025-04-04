@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compro Oro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;
+            color: #fff;
+        }
+        .top-bar {
+            background: linear-gradient(90deg, #FFD700, #FFA500);
+            padding: 5px 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #121212;
+            font-weight: bold;
+        }
+        .main-menu {
+            display: flex;
+            justify-content: center;
+            background: #1A1A1A;
+            padding: 15px 0;
+        }
+        .main-menu ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        .main-menu a {
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+        .main-menu a:hover {
+            color: #fff;
+        }
+
+        .hero {
+            background: url("{{ url_for('static', filename='tasacion.jpg') }}") no-repeat center 30%;
+            background-size: 100%;
+
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+            position: relative;
+        }
+        .hero-content {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 10px;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        /* Botón de llamada a la acción */
+        .cta-button {
+            display: inline-block;
+            padding: 12px 20px;
+            background: #FFD700;
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .cta-button:hover {
+            background: #ccac00;
+        }
+
+        .info {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 40px;
+    background: black;
+    text-align: center;
+}
+
+.info-item {
+    width: 30%;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    color: white;
+    
+    /* Fondo oscuro con transparencia para mejorar legibilidad */
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.2);
+}
+
+/* Ajustar la opacidad de la imagen de fondo */
+.info-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.5; /* Más visible pero no demasiado */
+}
+
+/* Texto más legible */
+.info-item h2 {
+    color: #FFD700;
+    margin-top: 15px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Sombra para resaltar */
+}
+
+.info-item p {
+    color: #fff;
+    font-size: 1.1em;
+    line-height: 1.4;
+    padding: 10px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* Fondo con imágenes */
+.info-item-1 {
+    background: url("static/Anillos.jpg") no-repeat center center/cover;
+}
+.info-item-2 {
+    background: url("static/dinero.jpg") no-repeat center center/cover;
+}
+.info-item-3 {
+    background: url("static/Apreton_manos.jpg") no-repeat center center/cover;
+}
+
+
+        @media (max-width: 768px) {
+            .main-menu ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            .info-item {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="top-bar">
+        <h2>La Central del Oro</h2>
+    </header>
+    <nav class="main-menu">
+        <ul>
+            <li><a href="/#">Inicio</a></li>
+            <li><a href="/casa_empeños">Casa de Empeños</a></li>
+            <li><a href="/oro_inversion">Oro de Inversión</a></li>
+            <li><a href="/venta_joyas">Venta de Joyas</a></li>
+            <a href="{{ url_for('home') }}#map">¿Dónde Estamos?</a>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>¡Vende tu Oro al Mejor Precio!</h1>
+            <p>Visita tu tienda más cercana y recibe la máxima tasación del mercado. Pagamos en efectivo y al instante.</p>
+            <a href="{{ url_for('home') }}#map" class="cta-button">Encuentra tu Tienda</a>
+        </div>
+    </section>
+
+    <section class="info">
+        <div class="info-item info-item-1">
+            <h2>Tasación Gratuita</h2>
+            <p>Valoramos tus joyas sin importar su estado. Sin compromiso.</p>
+        </div>
+        <div class="info-item info-item-2">
+            <h2>Pago Inmediato</h2>
+            <p>Recibe tu dinero en efectivo al instante.</p>
+        </div>
+        <div class="info-item info-item-3">
+            <h2>Confianza y Seguridad</h2>
+            <p>Más de 10 años de experiencia en el sector.</p>
+        </div>
+    </section>
+
+</body>
+</html>

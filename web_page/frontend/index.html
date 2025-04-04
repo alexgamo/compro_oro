@@ -1,193 +1,261 @@
 <!DOCTYPE html>
-<html lang="es"> 
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compro Oro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        .phone-number a {
-            color: #ffffff; /* Color del texto del enlace */
-            text-decoration: none; /* Quita el subrayado */
-            font-size: 16px; /* Tamaño del texto */
-        }
-    
-        .phone-number a:hover {
-            text-decoration: underline; /* Añade subrayado al pasar el ratón */
-        }
-    </style>
-    <style>
-        /* Estilos globales */
         body {
             margin: 0;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;
             color: #fff;
-            background-color: #003E25;
         }
-
-        /* Encabezado superior */
         .top-bar {
-            background-color: #003E25;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #d4af37; /* Dorado */
-            font-size: 14px;
-        }
-
-        .lang-switch {
-            margin-left: 20px;
-            font-weight: bold;
-        }
-
-        /* Menú de navegación */
-        .main-menu {
-            background-color: #003E25;
-            padding: 0px 20px;
+            background: linear-gradient(90deg, #FFD700, #FFA500);
+            padding: 5px 5%;
             display: flex;
             justify-content: center;
             align-items: center;
-            border-bottom: 1px solid #444;
-        }
-
-        .main-menu ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-        }
-
-        .main-menu li {
-            margin: 0 100px;
-            display: flex;
-            align-items: center;
-        }
-
-        .main-menu a {
-            text-decoration: none;
-            color: #d4af37; /* Dorado */
-            font-size: 16px;
+            color: #121212;
             font-weight: bold;
         }
-
+        .main-menu {
+            display: flex;
+            justify-content: center;
+            background: #1A1A1A;
+            padding: 15px 0;
+        }
+        .main-menu ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        .main-menu a {
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
         .main-menu a:hover {
             color: #fff;
         }
-
-        /* Logo centrado */
-        .logo-container {
-            margin: 0 40px;
-            position: relative;
-        }
-
-        .logo {
-            height: 80px;
-            display: block;
-        }
-
-        /* Botón "Pedir Cita" */
-        .appointment-btn {
-            padding: 8px 16px;
-            background-color: transparent;
-            color: #d4af37; /* Dorado */
-            border: 1px solid #d4af37;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 14px;
-            text-transform: uppercase;
-        }
-
-        .appointment-btn:hover {
-            background-color: #d4af37;
-            color: #1b1b35;
-        }
         
-        .features {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            max-width: 1200px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 90%;
+    margin: 50px auto;
+    padding: 10px;
+    column-gap: 30px;
+}
 
-        .feature-item {
+.feature-item {
+    background: #1A1A1A;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.feature-item p {
+    margin-bottom: 3px;
+    line-height: 1.4;
+    font-size: 15px;
+}
+
+.feature-item:hover {
+    transform: scale(1.05);
+    border: 3px solid #FFD700; /* Borde dorado más intenso */
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); /* Resplandor dorado */
+}
+
+.feature-item h2 {
+    color: #FFD700;
+    margin-bottom: 10px;
+}
+
+.feature-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover .feature-image img {
+    transform: scale(1.08);
+}
+#map-container {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            text-align: center;
-            padding: 20px;
+            gap: 20px;
         }
-
-        .feature-item h2 {
-            color: #c69e6e;
-            font-size: 24px;
+        #map {
+            width: 70%;
+            height: 500px;
+        }
+        #store-info {
+            width: 30%;
+            padding: 10px;
+            background: #222;
+            color: #fff;
+            border-radius: 10px;
+        }
+        #store-image {
+            width: 100%;
+            border-radius: 5px;
             margin-bottom: 10px;
         }
 
-        .feature-item p {
-            color: #555;
-            font-size: 16px;
-        }
-
-        .feature-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            object-fit: cover;
+        @media (max-width: 768px) {
+            .main-menu ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Encabezado superior -->
     <header class="top-bar">
-        <div class="phone-number">
-            <a href="tel:+34111111111" onclick="return confirm('¿Quieres llamar al +34 111 111 111?')">
-                +34 111 111 111
-            </a>
-        </div>
-        <button class="appointment-btn">PEDIR CITA</button>
+        <h2>La Central del Oro</h2>
     </header>
-
-    <!-- Menú de navegación -->
     <nav class="main-menu">
         <ul>
-            <li><a href="#">Nosotros</a></li>
-            <li><a href="#">Venta de Joyas</a></li>
-            <li class="logo-container">
-                <img src="/static/logo.png" alt="Logo" class="logo">
-            </li>
-            <li><a href="#">Venta/Empeños</a></li>
-            <li><a href="#">Contacto</a></li>
+            <li><a href="/compro_oro_plata">Compro Oro y Plata</a></li>
+            <li><a href="/casa_empeños">Casa de Empeños</a></li>
+            <li><a href="/oro_inversion">Oro de Inversión</a></li>
+            <li><a href="/venta_joyas">Venta de Joyas</a></li>
+            <li><a href="#map">¿Dónde Estamos?</a></li>
         </ul>
     </nav>
-
-    <!-- Contenido principal -->
     <div class="features">
-        <div class="feature-item">
-            <h2>Profesionalidad</h2>
-            <p>
-                Texto de ejemplo
-            </p>
+        <div class="feature-item" onclick="location.href='/compro_oro_plata';">
+            <h2>Compro Oro y Plata</h2>
+            <p>Ofrecemos la mayor valoración del mercado, presupuestos sin compromiso y pago al contado.</p>
         </div>
         <div class="feature-image">
-            <img src="https://via.placeholder.com/400x300" alt="Imagen profesionalidad">
+            <img src="/static/oro.jpg" alt="Oro">
+        </div>
+        <div class="feature-item" onclick="location.href='/casa_empeños';">
+            <h2>Casa de Empeños</h2>
+            <p>Utiliza tus joyas para ganar dinero y recuperalas cuando quieras.</p>
         </div>
         <div class="feature-image">
-            <img src="https://via.placeholder.com/400x300" alt="Imagen experiencia">
+            <img src="/static/dinero.jpg" alt="Dinero">
         </div>
-        <div class="feature-item">
-            <h2>Experiencia</h2>
-            <p>
-                Texto de ejemplo 2
-            </p>
+        <div class="feature-item" onclick="location.href='/oro_inversion';">
+            <h2>Oro de Inversión</h2>
+            <p>El oro es la inversión más segura del mercado. Compra lingotes y benefíciate del mayor valor refugio.</p>
+        </div>
+        <div class="feature-image">
+            <img src="/static/bolsa.jpg" alt="Dinero">
+        </div>
+        <div class="feature-item" onclick="location.href='/venta_joyas';">
+            <h2>Venta de Joyas</h2>
+            <p>Joyas de oro, plata y acero a precios inigualables.</p>
+        </div>
+        <div class="feature-image">
+            <img src="/static/joyas.jpg" alt="Dinero">
         </div>
     </div>
-
+    <h2 style="text-align: center; color: #FFD700;">Nuestra Ubicación</h2>
+    <div id="map-container">
+        <div id="map"></div>
+        <div id="store-info">
+            <h3 style="color: #FFD700;">Información de la Tienda</h3>
+            <img id="store-image" src="" alt="Imagen de la tienda" style="display: none;">
+            <p id="store-address"></p>
+            <p id="store-phone"></p>
+            <p id="store-hours"></p>
+        </div>
+    </div>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').fitBounds([
+            [41.49638142531871, 2.2623647981460015],
+            [41.60402335069948, 1.8937163548789575],
+            [41.51801756666203, 2.1231810088423986],
+            [41.34504758144637, 1.6968773106888098],
+            [41.18882584980767, 1.5690847836996615],
+            [41.23071191522318, 1.7445111548652341],
+            [41.01459632379387, 1.3524343836977267]
+        ]);
+    
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+    
+        var locations = [
+            { 
+                coords: [41.49638142531871, 2.1623647981460015], 
+                text: 'Rambla Sant Jordi 76, Ripollet, 08291',
+                img: 'static/img/ripollet.jpg',
+                phone: '+34 931 234 567',
+                hours: 'Lunes - Viernes: 10:00 - 18:00'
+            },
+            { 
+                coords: [41.54402335069948, 1.8937163548789575], 
+                text: 'Carrers dels Arbres 37, Olesa de Montserrat, 08640',
+                img: 'static/img/olesa.jpg',
+                phone: '+34 932 567 890',
+                hours: 'Lunes - Viernes: 09:00 - 19:00'
+            },
+            { 
+                coords: [41.51801756666203, 2.1231810088423986], 
+                text: 'Passeig del Dr. Moragas 252, Barberà del Vallès, 08210',
+                img: 'static/img/barbera.jpg',
+                phone: '+34 933 678 901',
+                hours: 'Lunes - Sábado: 10:00 - 20:00'
+            },
+            { 
+                coords: [41.34504758144637, 1.6968773106888098], 
+                text: 'Carrer Sant Pere 18, Vilafranca del Penedès, 08720',
+                img: 'static/img/barbera.jpg',
+                phone: '+34 933 678 901',
+                hours: 'Lunes - Sábado: 10:00 - 20:00'
+            },
+            { 
+                coords: [41.18882584980767, 1.5690847836996615], 
+                text: 'Avinguda Mossèn Jaume Soler 15, Calafell, 43820',
+                img: 'static/img/barbera.jpg',
+                phone: '+34 933 678 901',
+                hours: 'Lunes - Sábado: 10:00 - 20:00'
+            },
+            { 
+                coords: [41.23071191522318, 1.7445111548652341], 
+                text: 'Avinguda Catalunya 5, Sant Pere de Ribes, 08812',
+                img: 'static/img/barbera.jpg',
+                phone: '+34 933 678 901',
+                hours: 'Lunes - Sábado: 10:00 - 20:00'
+            },
+            { 
+                coords: [41.14459632379387, 1.4024343836977267], 
+                text: 'Carrer de Pere Badia 15, Torredembarra, 43830',
+                img: 'static/img/barbera.jpg',
+                phone: '+34 933 678 901',
+                hours: 'Lunes - Sábado: 10:00 - 20:00'
+            },
+        ];
+    
+        locations.forEach(location => {
+            L.marker(location.coords).addTo(map)
+                .bindPopup(location.text, { autoClose: true, closeOnClick: true })
+                .on('click', function () {
+                    document.getElementById('store-image').src = location.img;
+                    document.getElementById('store-address').innerText = 'Dirección: ' + location.text;
+                    document.getElementById('store-phone').innerText = 'Teléfono: ' + location.phone;
+                    document.getElementById('store-hours').innerText = 'Horario: ' + location.hours;
+                });
+        });
+    </script>
+    
 </body>
 </html>

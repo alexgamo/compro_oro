@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venta de Joyas | La Central del Oro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #1e1e1e;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .top-bar {
+            background: linear-gradient(90deg, #FFD700, #FFA500);
+            padding: 5px 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #121212;
+            font-weight: bold;
+        }
+
+        .main-menu {
+            display: flex;
+            justify-content: center;
+            background: #1A1A1A;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .main-menu ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        .main-menu a {
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+        .main-menu a:hover {
+            color: #fff;
+        }
+
+        /* Sección Hero */
+        .hero {
+            background: url("{{ url_for('static', filename='Joyas joyeria (1).jpg') }}") no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        .hero-content {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 40px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #FFD700;
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+        .cta-button:hover {
+            background: #ccac00;
+            transform: scale(1.1);
+        }
+
+        .info {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 40px;
+    background: black;
+    text-align: center;
+}
+
+.info-item {
+    width: 30%;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    color: white;
+    
+    /* Fondo oscuro con transparencia para mejorar legibilidad */
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.2);
+}
+
+/* Ajustar la opacidad de la imagen de fondo */
+.info-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.5; /* Más visible pero no demasiado */
+}
+
+/* Texto más legible */
+.info-item h2 {
+    color: #FFD700;
+    margin-top: 15px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Sombra para resaltar */
+}
+
+.info-item p {
+    color: #fff;
+    font-size: 1.1em;
+    line-height: 1.4;
+    padding: 10px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+        /* Cambiar el tamaño de las imágenes de fondo en los botones */
+        .info-item-1 {
+            background: url("static/Chica con joyas.jpg") no-repeat center center/cover;
+        }
+        .info-item-2 {
+            background: url("static/dinero.jpg") no-repeat center 90%;
+            background-size: 100%;
+        }
+        .info-item-3 {
+            background: url("static/Caja con joyas.jpg") no-repeat center 60%;
+            background-size: 100%;
+        }
+
+        /* Sección Colección */
+        .collection-section {
+            background-color: #121212;
+            padding: 60px 0;
+        }
+        .collection-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #FFD700;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .collection {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 0 10%;
+        }
+        .collection-item {
+            background-color: #222;
+            color: white;
+            width: 30%;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .collection-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+        .collection-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .collection-item h3 {
+            font-size: 1.5rem;
+            color: #FFD700;
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+        .collection-item p {
+            font-size: 1rem;
+            padding: 0 15px;
+            color: #fff;
+            font-weight: 300;
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            .main-menu ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            .info-item {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .collection-item {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="top-bar">
+        <h2>La Central del Oro</h2>
+    </header>
+    <nav class="main-menu">
+        <ul>
+            <li><a href="/#">Inicio</a></li>
+            <li><a href="/compro_oro_plata">Compro Oro y Plata</a></li>
+            <li><a href="/casa_empeños">Casa de Empeños</a></li>
+            <li><a href="/oro_inversion">Oro de Inversión</a></li>
+            <a href="{{ url_for('home') }}#map">¿Dónde Estamos?</a>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>¡Venta de Joyas Exclusivas!</h1>
+            <h2>Descubre nuestra colección de oro, plata y acero</h2>
+            <p>Encuentra el detalle perfecto para cualquier ocasión y haz que cada momento brille.</p>
+            <p>Accede a joyas de alta calidad a precios imbatibles. ¡Visítanos y encuentra lo que buscas!</p>
+            <a href="{{ url_for('home') }}#map" class="cta-button">Encuentra tu Tienda</a>
+        </div>
+    </section>
+
+    <section class="info">
+        <div class="info-item info-item-1">
+            <h2>Joyas de Alta Calidad</h2>
+            <p>Seleccionadas para ofrecerte lo mejor. Joyas duraderas y con diseño exclusivo.</p>
+        </div>
+        <div class="info-item info-item-2">
+            <h2>Precios Inmejorables</h2>
+            <p>Precios accesibles para todo tipo de presupuestos. Joyas de lujo al alcance de todos.</p>
+        </div>
+        <div class="info-item info-item-3">
+            <h2>Variedad y Estilo</h2>
+            <p>Anillos, collares, relojes y más. Encuentra lo que más te guste en un solo lugar.</p>
+        </div>
+    </section>
+    <!--
+    <section class="collection-section">
+        <h2 class="collection-title">Nuestra Colección</h2>
+        <div class="collection">
+            <div class="collection-item">
+                <img src="static/joya1.jpg" alt="Joya 1">
+                <h3>Anillo de Oro 18k</h3>
+                <p>Elegante anillo de oro de 18 quilates, ideal para ocasiones especiales.</p>
+            </div>
+            <div class="collection-item">
+                <img src="static/joya2.jpg" alt="Joya 2">
+                <h3>Collar de Plata</h3>
+                <p>Collar de plata con un diseño moderno, perfecto para cualquier look.</p>
+            </div>
+            <div class="collection-item">
+                <img src="static/joya3.jpg" alt="Joya 3">
+                <h3>Reloj de Lujo</h3>
+                <p>Reloj de lujo con acabados en acero inoxidable, un accesorio atemporal.</p>
+            </div>
+            <div class="collection-item">
+                <img src="static/joya4.jpg" alt="Joya 4">
+                <h3>Pulsera de Acero</h3>
+                <p>Pulsera de acero con detalles en oro, sofisticada y duradera.</p>
+            </div>
+            <div class="collection-item">
+                <img src="static/joya5.jpg" alt="Joya 5">
+                <h3>Pendientes de Oro</h3>
+                <p>Pendientes de oro de 18k, la combinación perfecta de elegancia y estilo.</p>
+            </div>
+            <div class="collection-item">
+                <img src="static/joya6.jpg" alt="Joya 6">
+                <h3>Anillo de Diamantes</h3>
+                <p>Anillo con diamantes de alta calidad, ideal para propuestas de matrimonio.</p>
+            </div>
+        </div>
+    </section>-->
+</body>
+</html>
