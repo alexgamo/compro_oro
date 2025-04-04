@@ -21,7 +21,7 @@ def home():
 def compro_oro_y_plata():
     return render_template('compro_oro_plata.html')
 
-@app.route('/casa_empeños')
+@app.route('/casa_empenos')
 def casa_empeños():
     return render_template('casa_empeños.html')
 
