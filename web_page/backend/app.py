@@ -1,7 +1,6 @@
 import os
 from flask import Flask, render_template, redirect, jsonify
 import requests
-import datetime
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
