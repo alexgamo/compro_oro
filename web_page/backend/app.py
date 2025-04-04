@@ -23,7 +23,7 @@ def compro_oro_y_plata():
 
 @app.route('/casa_empenos')
 def casa_empeños():
-    return render_template('casa_empeños.html')
+    return render_template('casa_empenos.html')
 
 @app.route('/oro_inversion')
 def oro_inversion():
