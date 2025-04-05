@@ -220,16 +220,21 @@
         <h2><a href="/#">La Central del Oro</a></h2>
     </header>
 
-  <nav class="main-menu">
-    <ul>
-      <li><a href="/#">Inicio</a></li>
-      <li><a href="/compro_oro_plata">Compro Oro y Plata</a></li>
-      <li><a href="/casa_empenos">Casa de Empeños</a></li>
-      <li><a href="/oro_inversion">Oro de Inversión</a></li>
-      <li><a href="/venta_joyas">Venta de Joyas</a></li>
-      <li><a href="#map">¿Dónde Estamos?</a></li>
-    </ul>
-  </nav>
+    <nav class="main-menu">
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/#">Inicio</a></li>
+            <li><a href="/compro_oro_plata">Compro Oro y Plata</a></li>
+            <li><a href="/casa_empenos">Casa de Empeños</a></li>
+            <li><a href="/oro_inversion">Oro de Inversión</a></li>
+            <li><a href="/venta_joyas">Venta de Joyas</a></li>
+            <li><a href="#map">¿Dónde Estamos?</a></li>
+        </ul>
+    </nav>
 
   <div class="features">
     <div class="feature-item" onclick="location.href='/compro_oro_plata';">
@@ -263,7 +268,6 @@
     <div id="map"></div>
     <div id="store-info">
       <h3 style="color: #FFD700;">Información de la Tienda</h3>
-      <img id="store-image" src="" alt="Imagen de la tienda" style="display: none;">
       <p id="store-address"></p>
       <p id="store-phone"></p>
       <p id="store-hours"></p>
