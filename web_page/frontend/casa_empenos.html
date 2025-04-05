@@ -1,200 +1,239 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casa de Empeños | La Central del Oro</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: #121212;
-            color: #fff;
-        }
-        .top-bar {
-            background: linear-gradient(90deg, #FFD700, #FFA500);
-            padding: 5px 5%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #121212;
-            font-weight: bold;
-        }
-        .main-menu {
-            display: flex;
-            justify-content: center;
-            background: #1A1A1A;
-            padding: 15px 0;
-        }
-        .main-menu ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
-        .main-menu a {
-            color: #FFD700;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1rem;
-            transition: 0.3s;
-        }
-        .main-menu a:hover {
-            color: #fff;
-        }
-        .hero {
-            background: url("{{ url_for('static', filename='Reloj_2.jpg') }}") no-repeat center 30%;
-            background-size: 100%;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Casa de Empeños | La Central del Oro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #121212;
+      color: #fff;
+    }
 
-            height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding: 20px;
-            position: relative;
-        }
-        .hero-content {
-            background: rgba(0, 0, 0, 0.6);
-            padding: 30px;
-            border-radius: 10px;
-        }
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-        /* Botón de llamada a la acción */
-        .cta-button {
-            display: inline-block;
-            padding: 12px 20px;
-            background: #FFD700;
-            color: black;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-        .cta-button:hover {
-            background: #ccac00;
-        }
-        /* Sección de Información */
-        .info {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    padding: 40px;
-    background: black;
-    text-align: center;
-}
+    .top-bar {
+      background: linear-gradient(90deg, #FFD700, #FFA500);
+      padding: 10px 5%;
+      text-align: center;
+      color: #121212;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
 
-.info-item {
-    width: 30%;
-    padding: 20px;
-    border-radius: 10px;
-    position: relative;
-    overflow: hidden;
-    color: white;
-    
-    /* Fondo oscuro con transparencia para mejorar legibilidad */
-    background: rgba(0, 0, 0, 0.7);
-    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.2);
-}
+    .main-menu {
+      display: flex;
+      justify-content: center;
+      background: #1A1A1A;
+      padding: 15px 0;
+    }
 
-/* Ajustar la opacidad de la imagen de fondo */
-.info-item img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-    opacity: 0.5; /* Más visible pero no demasiado */
-}
+    .main-menu ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 0;
+      margin: 0;
+      justify-content: center;
+    }
 
-/* Texto más legible */
-.info-item h2 {
-    color: #FFD700;
-    margin-top: 15px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Sombra para resaltar */
-}
+    .main-menu a {
+      color: #FFD700;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
 
-.info-item p {
-    color: #fff;
-    font-size: 1.1em;
-    line-height: 1.4;
-    padding: 10px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-}
+    .main-menu a:hover {
+      color: #fff;
+    }
 
-        /* Cambiar el tamaño de las imágenes de fondo en los botones */
-        .info-item-1 {
-            background: url("static/Taller.jpg") no-repeat center center/cover;
-        }
-        .info-item-2 {
-            background: url("static/Calendario.jpg") no-repeat center 90%;
-            background-size: 100%;
-        }
-        .info-item-3 {
-            background: url("static/Caja Fuerte.jpg") no-repeat center 80%;
-            background-size: 100%;
-        }
+    .hero {
+      background: url("{{ url_for('static', filename='Reloj_2.jpg') }}") no-repeat center center;
+      background-size: cover;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 20px;
+    }
 
-        @media (max-width: 768px) {
-            .main-menu ul {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-            }
-            .info-item {
-                width: 100%;
-                margin-bottom: 20px;
-            }
-        }
-    </style>
+    .hero-content {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 90%;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 12px 20px;
+      background: #FFD700;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: 0.3s;
+      font-size: 1rem;
+    }
+
+    .cta-button:hover {
+      background: #ccac00;
+    }
+
+    .info {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 40px 20px;
+      background: black;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .info-item {
+      width: 30%;
+      padding: 20px;
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+      color: white;
+      background: rgba(0, 0, 0, 0.7);
+      box-shadow: 0 4px 10px rgba(255, 215, 0, 0.2);
+    }
+
+    .info-item img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.5;
+    }
+
+    .info-item h2 {
+      color: #FFD700;
+      margin-top: 15px;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+    }
+
+    .info-item p {
+      color: #fff;
+      font-size: 1em;
+      line-height: 1.4;
+      padding: 10px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    }
+
+    .info-item-1 {
+      background: url("static/Taller.jpg") no-repeat center center/cover;
+    }
+
+    .info-item-2 {
+      background: url("static/Calendario.jpg") no-repeat center center/cover;
+    }
+
+    .info-item-3 {
+      background: url("static/Caja Fuerte.jpg") no-repeat center center/cover;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .info-item {
+        width: 45%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .main-menu ul {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+
+      .hero h2 {
+        font-size: 1.1rem;
+      }
+
+      .info-item {
+        width: 100%;
+      }
+
+      .cta-button {
+        font-size: 0.95rem;
+        padding: 10px 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        height: auto;
+        padding: 40px 20px;
+      }
+
+      .top-bar h2 {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header class="top-bar">
-        <h2>La Central del Oro</h2>
-    </header>
-    <nav class="main-menu">
-        <ul>
-            <li><a href="/#">Inicio</a></li>
-            <li><a href="/compro_oro_plata">Compro Oro y Plata</a></li>
-            <li><a href="/casa_empenos">Casa de Empeños</a></li>
-            <li><a href="/oro_inversion">Oro de Inversión</a></li>
-            <li><a href="/venta_joyas">Venta de Joyas</a></li>
-            <a href="{{ url_for('home') }}#map">¿Dónde Estamos?</a>
-        </ul>
-    </nav>
+  <header class="top-bar">
+    <h2>La Central del Oro</h2>
+  </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>¡Empeña tus Joyas y Obtén Dinero al Instante!</h1>
-            <h2>Saca dinero a tus joyas sin perderlas</h2>
-            <a href="{{ url_for('home') }}#map" class="cta-button">Encuentra tu Tienda</a>
-        </div>
-    </section>
+  <nav class="main-menu">
+    <ul>
+      <li><a href="/#">Inicio</a></li>
+      <li><a href="/compro_oro_plata">Compro Oro y Plata</a></li>
+      <li><a href="/casa_empenos">Casa de Empeños</a></li>
+      <li><a href="/oro_inversion">Oro de Inversión</a></li>
+      <li><a href="/venta_joyas">Venta de Joyas</a></li>
+      <li><a href="{{ url_for('home') }}#map">¿Dónde Estamos?</a></li>
+    </ul>
+  </nav>
 
-    <section class="info">
-        <div class="info-item info-item-1">
-            <h2>Valoración Instantánea</h2>
-            <p>Valoramos tus joyas al instante sin importar su estado. Sin compromiso.</p>
-        </div>
-        <div class="info-item info-item-2">
-            <h2>Flexibilidad Total</h2>
-            <p>Damos la posibilidad de recoger tus joyas en cualquier momento.</p>
-        </div>
-        <div class="info-item info-item-3">
-            <h2>Confianza y Seguridad</h2>
-            <p>Guardamos tus joyas empeñadas en nuestras cajas de seguridad, vigiladas las 24 horas del día.</p>
-        </div>
-    </section>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>¡Empeña tus Joyas y Obtén Dinero al Instante!</h1>
+      <h2>Saca dinero a tus joyas sin perderlas</h2>
+      <a href="{{ url_for('home') }}#map" class="cta-button">Encuentra tu Tienda</a>
+    </div>
+  </section>
 
+  <section class="info">
+    <div class="info-item info-item-1">
+      <h2>Valoración Instantánea</h2>
+      <p>Valoramos tus joyas al instante sin importar su estado. Sin compromiso.</p>
+    </div>
+    <div class="info-item info-item-2">
+      <h2>Flexibilidad Total</h2>
+      <p>Damos la posibilidad de recoger tus joyas en cualquier momento.</p>
+    </div>
+    <div class="info-item info-item-3">
+      <h2>Confianza y Seguridad</h2>
+      <p>Guardamos tus joyas empeñadas en nuestras cajas de seguridad, vigiladas las 24 horas del día.</p>
+    </div>
+  </section>
 </body>
 </html>
