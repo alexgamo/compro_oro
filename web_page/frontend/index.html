@@ -71,18 +71,11 @@
         }
 
         .nav-links {
-            display: flex;
+        display: none;
         }
 
         .nav-links.active {
-            display: block;
-            position: absolute;
-            top: 80px;
-            left: 0;
-            width: 100%;
-            background-color: #1A1A1A;
-            padding: 20px 0;
-            text-align: center;
+        display: block;
         }
 
         .nav-links li {
@@ -220,7 +213,7 @@
         <h2><a href="/#">La Central del Oro</a></h2>
     </header>
 
-    <nav class="main-menu">
+  <nav class="main-menu">
         <div class="hamburger" onclick="toggleMenu()">
             <div></div>
             <div></div>
@@ -277,6 +270,11 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script>
+    function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('active');
+    }
+
     const map = L.map('map').fitBounds([
       [41.49638142531871, 2.2623647981460015],
       [41.60402335069948, 1.8937163548789575],
