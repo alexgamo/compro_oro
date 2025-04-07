@@ -56,35 +56,35 @@
     }
 
     .hamburger {
-            display: none;
-            cursor: pointer;
-            flex-direction: column;
-            gap: 5px;
-        }
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+    }
 
-        .hamburger div {
-            width: 30px;
-            height: 4px;
-            background-color: #FFD700;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
+    .hamburger div {
+        width: 30px;
+        height: 4px;
+        background-color: #FFD700;
+        border-radius: 5px;
+        transition: 0.3s;
+    }
 
-        .nav-links {
-        display: none;
-        }
+    .nav-links {
+      display: none;
+    }
 
-        .nav-links.active {
-        display: block;
-        }
+    .nav-links.active {
+      display: block;
+    }
 
-        .nav-links li {
-            margin: 10px 0;
-        }
+    .nav-links li {
+        margin: 10px 0;
+    }
 
-        .nav-links li a {
-            font-size: 1.2rem;
-        }
+    .nav-links li a {
+        font-size: 1.2rem;
+    }
 
     .features {
       display: grid;
@@ -154,12 +154,6 @@
       background: #222;
       color: #fff;
       border-radius: 10px;
-    }
-
-    #store-image {
-      width: 100%;
-      border-radius: 5px;
-      margin-bottom: 10px;
     }
 
     @media (max-width: 768px) {
@@ -234,25 +228,25 @@
       <h2>Compro Oro y Plata</h2>
       <p>Ofrecemos la mayor valoración del mercado, presupuestos sin compromiso y pago al contado.</p>
     </div>
-    <div class="feature-image"><img src="/static/oro.jpg" alt="Oro"></div>
+    <div class="feature-image"><img src="/static/monedas_oro.webp" alt="Oro"></div>
 
     <div class="feature-item" onclick="location.href='/casa_empeños';">
       <h2>Casa de Empeños</h2>
       <p>Utiliza tus joyas para ganar dinero y recupéralas cuando quieras.</p>
     </div>
-    <div class="feature-image"><img src="/static/dinero.jpg" alt="Dinero"></div>
+    <div class="feature-image"><img src="/static/dinero.webp" alt="Dinero"></div>
 
     <div class="feature-item" onclick="location.href='/oro_inversion';">
       <h2>Oro de Inversión</h2>
       <p>El oro es la inversión más segura del mercado. Compra lingotes y benefíciate del mayor valor refugio.</p>
     </div>
-    <div class="feature-image"><img src="/static/bolsa.jpg" alt="Dinero"></div>
+    <div class="feature-image"><img src="/static/bolsa.webp" alt="Dinero"></div>
 
     <div class="feature-item" onclick="location.href='/venta_joyas';">
       <h2>Venta de Joyas</h2>
       <p>Joyas de oro, plata y acero a precios inigualables.</p>
     </div>
-    <div class="feature-image"><img src="/static/joyas.jpg" alt="Joyas"></div>
+    <div class="feature-image"><img src="/static/joyas.webp" alt="Joyas"></div>
   </div>
 
   <h2 style="text-align: center; color: #FFD700;">Nuestra Ubicación</h2>
@@ -271,8 +265,8 @@
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script>
     function toggleMenu() {
-    const navLinks = document.querySelector('.nav-links');
-    navLinks.classList.toggle('active');
+        const navLinks = document.querySelector('.nav-links');
+        navLinks.classList.toggle('active');
     }
 
     const map = L.map('map').fitBounds([
@@ -293,43 +287,43 @@
             { 
                 coords: [41.49638142531871, 2.1623647981460015], 
                 text: 'Rambla Sant Jordi 76, Ripollet, 08291',
-                phone: '+34 931 234 567',
+                phone: '+34 934 528 493',
                 hours: 'Lunes - Viernes: 10:00 - 18:00'
             },
             { 
                 coords: [41.54402335069948, 1.8937163548789575], 
                 text: 'Carrers dels Arbres 37, Olesa de Montserrat, 08640',
-                phone: '+34 932 567 890',
+                phone: '+34 612 260 793',
                 hours: 'Lunes - Viernes: 09:00 - 19:00'
             },
             { 
                 coords: [41.51801756666203, 2.1231810088423986], 
                 text: 'Passeig del Dr. Moragas 252, Barberà del Vallès, 08210',
-                phone: '+34 933 678 901',
+                phone: 'No disponible',
                 hours: 'Lunes - Sábado: 10:00 - 20:00'
             },
             { 
                 coords: [41.34504758144637, 1.6968773106888098], 
                 text: 'Carrer Sant Pere 18, Vilafranca del Penedès, 08720',
-                phone: '+34 933 678 901',
+                phone: '+34 938 091 164',
                 hours: 'Lunes - Sábado: 10:00 - 20:00'
             },
             { 
                 coords: [41.18882584980767, 1.5690847836996615], 
                 text: 'Avinguda Mossèn Jaume Soler 15, Calafell, 43820',
-                phone: '+34 933 678 901',
+                phone: '+34 977 691 260',
                 hours: 'Lunes - Sábado: 10:00 - 20:00'
             },
             { 
                 coords: [41.23071191522318, 1.7445111548652341], 
                 text: 'Avinguda Catalunya 5, Sant Pere de Ribes, 08812',
-                phone: '+34 933 678 901',
+                phone: '+34 687 697 878',
                 hours: 'Lunes - Sábado: 10:00 - 20:00'
             },
             { 
                 coords: [41.14459632379387, 1.4024343836977267], 
                 text: 'Carrer de Pere Badia 15, Torredembarra, 43830',
-                phone: '+34 933 678 901',
+                phone: 'No disponible',
                 hours: 'Lunes - Sábado: 10:00 - 20:00'
             },
         ];
@@ -338,7 +332,6 @@
       L.marker(location.coords).addTo(map)
         .bindPopup(location.text)
         .on('click', () => {
-          document.getElementById('store-image').style.display = 'block';
           document.getElementById('store-address').innerText = 'Dirección: ' + location.text;
           document.getElementById('store-phone').innerText = 'Teléfono: ' + location.phone;
           document.getElementById('store-hours').innerText = 'Horario: ' + location.hours;

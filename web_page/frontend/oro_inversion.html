@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compro Oro</title>
+    <title>Oro Inversión | La Central del Oro</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -44,7 +44,7 @@
         }
         /* Sección Hero */
         .hero {
-            background: url("{{ url_for('static', filename='Joyas joyeria (1).jpg') }}") no-repeat center center/cover;
+            background: url("{{ url_for('static', filename='oro.webp') }}") no-repeat center center/cover;
             height: 80vh;
             display: flex;
             align-items: center;
@@ -136,18 +136,16 @@
 
         /* Cambiar el tamaño de las imágenes de fondo en los botones */
         .info-item-1 {
-            background: url("static/Chica con joyas.jpg") no-repeat center center/cover;
+            background: url("static/bolsa_2.webp") no-repeat center center/cover;
         }
         .info-item-2 {
-            background: url("static/dinero.jpg") no-repeat center 90%;
+            background: url("static/lingote.webp") no-repeat center 90%;
             background-size: 100%;
         }
         .info-item-3 {
-            background: url("static/Caja con joyas.jpg") no-repeat center 60%;
+            background: url("static/global.webp") no-repeat center 60%;
             background-size: 100%;
         }
-
-
 
 
         @media (max-width: 768px) {
@@ -214,73 +212,75 @@
     </section>
 
     <section id="gold-chart">
-        <h2>Evolución del Precio del Oro (últimos 10 años)</h2>
+        <h2>Evolución del Precio del Oro (últimos 5 años)</h2>
         <canvas id="goldPriceChart"></canvas>
       </section>
     
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-      <script>
-        fetch('/gold-data')
-          .then(response => response.json())
-          .then(data => {
-            const ctx = document.getElementById('goldPriceChart').getContext('2d');
-            const dates = data.map(d => d.date);
-            const prices = data.map(d => d.price);
-    
-            new Chart(ctx, {
-              type: 'line',
-              data: {
-                labels: dates,
-                datasets: [{
-                  label: 'Precio del Oro (USD)',
-                  data: prices,
-                  borderColor: '#FFD700',
-                  backgroundColor: 'rgba(255, 215, 0, 0.1)',
-                  tension: 0.3,
-                  pointRadius: 3,
-                  pointHoverRadius: 6,
-                  pointBackgroundColor: '#FFD700'
-                }]
-              },
-              options: {
-                responsive: true,
-                interaction: {
-                  mode: 'index',
-                  intersect: false
-                },
-                plugins: {
-                  tooltip: {
-                    mode: 'nearest',
-                    intersect: false,
-                    callbacks: {
-                      label: function(context) {
-                        return `Precio: $${context.raw.toFixed(2)}`;
-                      }
-                    }
-                  },
-                  legend: {
-                    labels: {
-                      color: '#fff'
-                    }
-                  }
-                },
-                scales: {
-                  x: {
-                    ticks: {
-                      color: '#fff'
-                    }
-                  },
-                  y: {
-                    ticks: {
-                      color: '#fff'
-                    }
-                  }
-                }
-              }
-            });
-          })
-          .catch(error => console.error('Error al cargar los datos del oro:', error));
-      </script>
+
+ <script>
+   fetch('/gold-data')
+     .then(response => response.json())
+     .then(data => {
+       const ctx = document.getElementById('goldPriceChart').getContext('2d');
+       const dates = data.map(d => d.date);
+       const prices = data.map(d => d.eur_per_gram);
+ 
+       new Chart(ctx, {
+         type: 'line',
+         data: {
+           labels: dates,
+           datasets: [{
+             label: 'Precio del Oro (€/g)',
+             data: prices,
+             borderColor: '#FFD700',
+             backgroundColor: 'rgba(255, 215, 0, 0.1)',
+             tension: 0.3,
+             pointRadius: 3,
+             pointHoverRadius: 6,
+             pointBackgroundColor: '#FFD700'
+           }]
+         },
+         options: {
+           responsive: true,
+           interaction: {
+             mode: 'index',
+             intersect: false
+           },
+           plugins: {
+             tooltip: {
+               callbacks: {
+                 label: function(context) {
+                   return `Precio: €${context.raw.toFixed(2)}/g`;
+                 }
+               }
+             },
+             legend: {
+               labels: {
+                 color: '#fff'
+               }
+             }
+           },
+           scales: {
+             x: {
+               ticks: {
+                 color: '#fff'
+               }
+             },
+             y: {
+               ticks: {
+                 color: '#fff',
+                 callback: function(value) {
+                   return `€${value}`;
+                 }
+               }
+             }
+           }
+         }
+       });
+     })
+     .catch(error => console.error('Error al cargar los datos del oro:', error));
+ </script>
 
 </body>
 </html>

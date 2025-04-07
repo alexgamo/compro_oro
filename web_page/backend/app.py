@@ -29,14 +29,15 @@ def casa_empeños():
 def oro_inversion():
     return render_template('oro_inversion.html')
 
+
 @app.route('/gold-data')
 def gold_data():
+    # Paso 1: Obtener el histórico de precios XAU/USD
     params = {
         'function': 'TIME_SERIES_MONTHLY',
-        'symbol': 'XAUUSD',  # Oro frente al dólar
+        'symbol': 'XAUUSD',
         'apikey': API_KEY
     }
-
     response = requests.get(GOLD_URL, params=params)
     data = response.json()
 
@@ -44,12 +45,32 @@ def gold_data():
         return jsonify({'error': 'No se pudieron obtener datos'}), 500
 
     time_series = data['Monthly Time Series']
-    sorted_dates = sorted(time_series.keys(), reverse=True)[:60]  # Últimos 10 años (120 meses)
+    sorted_dates = sorted(time_series.keys(), reverse=True)[:60]  # Últimos 60 meses
 
-    history = [{
-        'date': date,
-        'price': float(time_series[date]['4. close'])
-    } for date in sorted(sorted_dates)]  # Ordenado cronológicamente
+    # Paso 2: Obtener el tipo de cambio USD → EUR (solo una vez)
+    fx_params = {
+        'function': 'CURRENCY_EXCHANGE_RATE',
+        'from_currency': 'USD',
+        'to_currency': 'EUR',
+        'apikey': API_KEY
+    }
+    fx_response = requests.get("https://www.alphavantage.co/query", params=fx_params)
+    fx_data = fx_response.json()
+
+    if "Realtime Currency Exchange Rate" not in fx_data:
+        return jsonify({'error': 'No se pudo obtener el tipo de cambio'}), 500
+
+    usd_to_eur = float(fx_data["Realtime Currency Exchange Rate"]["5. Exchange Rate"])
+
+    # Paso 3: Calcular EUR/gramo por cada mes
+    history = []
+    for date in sorted(sorted_dates):  # cronológicamente
+        usd_per_oz = float(time_series[date]['4. close'])
+        eur_per_gram = (usd_per_oz * usd_to_eur) / 31.1035
+        history.append({
+            'date': date,
+            'eur_per_gram': round(eur_per_gram, 2)
+        })
 
     return jsonify(history)
 
