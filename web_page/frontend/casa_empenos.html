@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Casa de Empeños | La Central del Oro</title>
+  <meta name="description" content="Casa de Empeños en Ripollet. Empeños con valoración instantánea, flexibilidad total y confianza y seguridad.">
+  <title>Casa de Empeños en Ripollet | Valoración Instantánea y Flexibilidad Total | La Central del Oro</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet" />
   <style>
     body {
@@ -58,8 +59,8 @@
     }
 
     .hero {
-      background: url("{{ url_for('static', filename='Reloj_2.webp') }}") no-repeat center center;
-      background-size: cover;
+      background: url("{{ url_for('static', filename='empeños.webp') }}") no-repeat center center;
+      background-size: 140%;
       height: 60vh;
       display: flex;
       align-items: center;
@@ -73,17 +74,17 @@
       background: rgba(0, 0, 0, 0.6);
       padding: 30px;
       border-radius: 10px;
-      max-width: 90%;
+      max-width: 60%;
     }
 
     .hero h1 {
-      font-size: 2rem;
+      font-size: 2.5rem;
       margin-bottom: 10px;
     }
 
-    .hero h2 {
-      font-size: 1.3rem;
-      margin-bottom: 15px;
+    .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
     }
 
     .cta-button {
@@ -99,7 +100,8 @@
     }
 
     .cta-button:hover {
-      background: #ccac00;
+        background: #ccac00;
+        transform: scale(1.1);
     }
 
     .info {
@@ -112,7 +114,7 @@
     }
 
     .info-item {
-      width: 30%;
+      width: 29%;
       padding: 20px;
       border-radius: 10px;
       position: relative;
@@ -148,15 +150,15 @@
     }
 
     .info-item-1 {
-      background: url("static/Taller.webp") no-repeat center center/cover;
+      background: url("static/Taller_empeños.webp") no-repeat center center/cover;
     }
 
     .info-item-2 {
-      background: url("static/Calendario.webp") no-repeat center center/cover;
+      background: url("static/Calendario_empeños.webp") no-repeat center center/cover;
     }
 
     .info-item-3 {
-      background: url("static/Caja Fuerte.webp") no-repeat center center/cover;
+      background: url("static/Caja Fuerte_empeños.webp") no-repeat center center/cover;
     }
 
 
@@ -204,20 +206,20 @@
 
   <section class="hero">
     <div class="hero-content">
-      <h1>¡Empeña tus Joyas y Obtén Dinero al Instante!</h1>
-      <h2>Saca dinero a tus joyas sin perderlas</h2>
-      <a href="{{ url_for('home') }}#map" class="cta-button">Encuentra tu Tienda</a>
+      <h1>¡Empeña tus Joyas en Ripollet!</h1>
+      <p>Saca dinero a tus joyas sin perderlas, con total confianza</p>
+      <a href="{{ url_for('home') }}#map" class="cta-button">Encuentra tu Tienda Más Cercana</a>
     </div>
   </section>
 
   <section class="info">
     <div class="info-item info-item-1">
-      <h2>Valoración Instantánea</h2>
+      <h2>Tasación Inmediata y Sin Compromiso</h2>
       <p>Valoramos tus joyas al instante sin importar su estado. Sin compromiso.</p>
     </div>
     <div class="info-item info-item-2">
-      <h2>Flexibilidad Total</h2>
-      <p>Damos la posibilidad de recoger tus joyas en cualquier momento.</p>
+      <h2>Recupera tus Joyas Cuando Quieras</h2>
+      <p>Ofrecemos total flexibilidad para que recuperes tus joyas empeñadas en el momento que elijas.</p>
     </div>
     <div class="info-item info-item-3">
       <h2>Confianza y Seguridad</h2>

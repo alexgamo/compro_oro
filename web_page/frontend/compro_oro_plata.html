@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compro Oro y Plata | La Central del Oro</title>
+    <meta name="description" content="Compro oro en Ripollet. Especializados en la compra de oro con tasación máxima y gratuita, pago inmediato, y más de 10 años en el sector, confianza y seguridad.">
+    <title>Compro Oro y Plata en Ripollet | Tasación Inmediata y Pago al Contado | La Central del Oro</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -49,7 +50,7 @@
         }
 
         .hero {
-            background: url("{{ url_for('static', filename='tasacion.webp') }}") no-repeat center 30%;
+            background: url("{{ url_for('static', filename='tasacion_oro_joyas_ripollet.webp') }}") no-repeat center 30%;
             background-size: 100%;
 
             height: 60vh;
@@ -65,6 +66,7 @@
             background: rgba(0, 0, 0, 0.6);
             padding: 30px;
             border-radius: 10px;
+            max-width: 60%;
         }
         .hero h1 {
             font-size: 2.5rem;
@@ -87,6 +89,7 @@
         }
         .cta-button:hover {
             background: #ccac00;
+            transform: scale(1.1);
         }
 
         .info {
@@ -140,13 +143,13 @@
 
 /* Fondo con imágenes */
 .info-item-1 {
-    background: url("static/Anillos.webp") no-repeat center center/cover;
+    background: url("static/anillos_oro.webp") no-repeat center center/cover;
 }
 .info-item-2 {
-    background: url("static/dinero.webp") no-repeat center center/cover;
+    background: url("static/casa_empeños.webp") no-repeat center center/cover;
 }
 .info-item-3 {
-    background: url("static/Apreton_manos.webp") no-repeat center center/cover;
+    background: url("static/confianza_10_años_ripollet_alrededores.webp") no-repeat center center/cover;
 }
 
 
@@ -180,24 +183,24 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>¡Vende tu Oro al Mejor Precio!</h1>
-            <p>Visita tu tienda más cercana y recibe la máxima tasación del mercado. Pagamos en efectivo y al instante.</p>
-            <a href="{{ url_for('home') }}#map" class="cta-button">Encuentra tu Tienda</a>
+            <h1>¡Vende tu Oro en Ripollet al Mejor Precio Garantizado!</h1>
+            <p>Visita nuestra tienda en Ripollet o la más cercana y obtén la máxima tasación del mercado. Pago rápido, en efectivo y sin complicaciones.</p></p>
+            <a href="{{ url_for('home') }}#map" class="cta-button">Encuentra tu Tienda Más Cercana</a>
         </div>
     </section>
 
     <section class="info">
         <div class="info-item info-item-1">
             <h2>Tasación Gratuita</h2>
-            <p>Valoramos tus joyas sin importar su estado. Sin compromiso.</p>
+            <p>Valoramos tus joyas y objetos de oro en cualquier estado, con un presupuesto transparente y sin obligaciones.</p>
         </div>
         <div class="info-item info-item-2">
-            <h2>Pago Inmediato</h2>
+            <h2>Pago Inmediato y al Instante</h2>
             <p>Recibe tu dinero en efectivo al instante.</p>
         </div>
         <div class="info-item info-item-3">
             <h2>Confianza y Seguridad</h2>
-            <p>Más de 10 años de experiencia en el sector.</p>
+            <p>Expertos con amplia experiencia en compra y tasación de oro en Ripollet y alrededores.</p>
         </div>
     </section>
 

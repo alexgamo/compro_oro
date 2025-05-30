@@ -2,8 +2,9 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Compro Oro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Compro oro en Ripollet. Especializados en la compra de oro con máxima tasación, venta de joyas, empeños y oro de inversión.">
+  <title>Compro Oro en Ripollet | Tasación Inmediata y Pago al Contado | La Central Del Oro</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -84,7 +85,7 @@
     .feature-item p {
       margin-bottom: 3px;
       line-height: 1.4;
-      font-size: 15px;
+      font-size: 14px;
     }
 
     .feature-image img {
@@ -168,7 +169,7 @@
           <li><a href="/casa_empenos">Casa de Empeños</a></li>
           <li><a href="/oro_inversion">Oro de Inversión</a></li>
           <li><a href="/venta_joyas">Venta de Joyas</a></li>
-          <a href="{{ url_for('home') }}#map">¿Dónde Estamos?</a>
+          <li><a href="#map">¿Dónde Estamos?</a></li>
       </ul>
   </nav>
 
@@ -179,33 +180,59 @@
     }
   </script>
 
-  <div class="features">
-    <div class="feature-item" onclick="location.href='/compro_oro_plata';">
-      <h2>Compro Oro y Plata</h2>
-      <p>Ofrecemos la mayor valoración del mercado, presupuestos sin compromiso y pago al contado.</p>
-    </div>
-    <div class="feature-image"><img src="/static/monedas_oro.webp" alt="Oro"></div>
+  <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "JewelryStore",
+        "name": "La Central del Oro",
+        "image": "https://tusitio.com/static/logo.png",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rambla Sant Jordi 76",
+          "addressLocality": "Ripollet",
+          "postalCode": "08291",
+          "addressCountry": "ES"
+        },
+        "telephone": "+34 934 528 493",
+        "openingHours": "Mo-Fr 10:00-18:00"
+      }
+  </script>
 
-    <div class="feature-item" onclick="location.href='/casa_empenos';">
-      <h2>Casa de Empeños</h2>
-      <p>Utiliza tus joyas para ganar dinero y recupéralas cuando quieras.</p>
-    </div>
-    <div class="feature-image"><img src="/static/dinero.webp" alt="Dinero"></div>
 
-    <div class="feature-item" onclick="location.href='/oro_inversion';">
-      <h2>Oro de Inversión</h2>
-      <p>El oro es la inversión más segura del mercado. Compra lingotes y benefíciate del mayor valor refugio.</p>
-    </div>
-    <div class="feature-image"><img src="/static/bolsa.webp" alt="Dinero"></div>
-
-    <div class="feature-item" onclick="location.href='/venta_joyas';">
-      <h2>Venta de Joyas</h2>
-      <p>Joyas de oro, plata y acero a precios inigualables.</p>
-    </div>
-    <div class="feature-image"><img src="/static/joyas.webp" alt="Joyas"></div>
+  <div style="text-align: center; margin-top: 20px;">
+    <h1 style="font-size: 2rem; font-weight: bold;">
+      Compra y Venta de Oro en Ripollet
+    </h1>
   </div>
 
-  <h2 style="text-align: center; color: #FFD700;">Nuestra Ubicación</h2>
+
+  <div class="features">
+    <div class="feature-item" onclick="location.href='/compro_oro_plata';">
+      <h2>Compro Oro y Plata en Ripollet</h2>
+      <p>Vende oro y plata en Ripollet al mejor precio del mercado. Ofrecemos tasaciones gratuitas, sin compromiso, y pago inmediato al contado.</p>
+    </div>
+    <div class="feature-image"><img src="/static/compro_oro.webp" alt="Compro Oro Ripollet"></div>
+
+    <div class="feature-item" onclick="location.href='/casa_empenos';">
+      <h2>Casa de Empeños en Ripollet</h2>
+      <p>Consigue dinero rápido empeñando tus joyas en Ripollet. Recupera tus objetos cuando quieras con total seguridad y facilidad.</p>
+    </div>
+    <div class="feature-image"><img src="/static/casa_empeños.webp" alt="Empeños Ripollet"></div>
+
+    <div class="feature-item" onclick="location.href='/oro_inversion';">
+      <h2>Oro de Inversión en Ripollet</h2>
+      <p>Invierte en oro físico seguro con nuestros lingotes de oro de inversión en Ripollet. Protege tu patrimonio con un valor refugio confiable y sólido.</p>
+    </div>
+    <div class="feature-image"><img src="/static/oro_inversion.webp" alt="Oro de Inversión Ripollet"></div>
+
+    <div class="feature-item" onclick="location.href='/venta_joyas';">
+      <h2>Venta de Joyas en Ripollet</h2>
+      <p>Venta de todo tipo de joyas en Ripollet. Joyas de oro, plata y acero a precios inigualables.</p>
+    </div>
+    <div class="feature-image"><img src="/static/venta_joyas.webp" alt="Venta de Joyas Ripollet"></div>
+  </div>
+
+  <h2 style="text-align: center; color: #FFD700;">Estas Viendo Nuestra Tienda de Ripollet. También puedes visitarnos en otras ciudades</h2>
 
   <div id="map-container">
     <div id="map"></div>
@@ -240,7 +267,7 @@
                 coords: [41.49638142531871, 2.1623647981460015], 
                 text: 'Rambla Sant Jordi 76, Ripollet, 08291',
                 phone: '+34 934 528 493',
-                hours: 'Lunes - Viernes: 10:00 - 18:00'
+                hours: 'Lunes - Viernes: 10:00 - 14:00, 16:00 - 20:00; Sábado: 10:00-14:00'
             },
             { 
                 coords: [41.54402335069948, 1.8937163548789575], 
@@ -280,14 +307,43 @@
             },
         ];
 
+    const ripolletCoords = [41.49638142531871, 2.1623647981460015];
+
+    const goldIcon = L.icon({
+      iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-yellow.png',
+      iconSize: [30, 50],
+      iconAnchor: [15, 40],
+      popupAnchor: [0, -35]
+    });
+
+    const redIcon = L.icon({
+      iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34]
+    });
+
+
     locations.forEach(location => {
-      L.marker(location.coords).addTo(map)
+      const isRipollet = location.coords[0] === ripolletCoords[0] && location.coords[1] === ripolletCoords[1];
+      const marker = L.marker(location.coords, {
+        icon: isRipollet ? goldIcon : redIcon
+      }).addTo(map)
         .bindPopup(location.text)
         .on('click', () => {
           document.getElementById('store-address').innerText = 'Dirección: ' + location.text;
           document.getElementById('store-phone').innerText = 'Teléfono: ' + location.phone;
           document.getElementById('store-hours').innerText = 'Horario: ' + location.hours;
         });
+
+      if (isRipollet) {
+        marker.openPopup();
+        // Actualizar la info manualmente al cargar la página
+        document.getElementById('store-address').innerText = 'Dirección: ' + location.text;
+        document.getElementById('store-phone').innerText = 'Teléfono: ' + location.phone;
+        document.getElementById('store-hours').innerText = 'Horario: ' + location.hours;
+      }
+
     });
   </script>
 </body>
