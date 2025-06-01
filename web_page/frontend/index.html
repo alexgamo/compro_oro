@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Compro oro en Ripollet. Especializados en la compra de oro con máxima tasación, venta de joyas, empeños y oro de inversión.">
   <title>Compro Oro en Ripollet | Tasación Inmediata y Pago al Contado | La Central Del Oro</title>
+  <!-- Preconexión para reducir el tiempo de conexión -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Carga asincrónica de la fuente -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -267,7 +274,7 @@
                 coords: [41.49638142531871, 2.1623647981460015], 
                 text: 'Rambla Sant Jordi 76, Ripollet, 08291',
                 phone: '+34 934 528 493',
-                hours: 'Lunes - Viernes: 10:00 - 14:00, 16:00 - 20:00; Sábado: 10:00-14:00'
+                hours: 'Lunes - Viernes: 10:00 - 13:30, 16:30 - 20:00; Sábado: 10:00-14:00'
             },
             { 
                 coords: [41.54402335069948, 1.8937163548789575], 
@@ -310,14 +317,14 @@
     const ripolletCoords = [41.49638142531871, 2.1623647981460015];
 
     const goldIcon = L.icon({
-      iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-yellow.png',
+      iconUrl: "/static/marker-icon-yellow.webp",
       iconSize: [30, 50],
       iconAnchor: [15, 40],
       popupAnchor: [0, -35]
     });
 
     const redIcon = L.icon({
-      iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+      iconUrl: '/static/marker-icon.webp',
       iconSize: [25, 41],
       iconAnchor: [12, 41],
       popupAnchor: [1, -34]
