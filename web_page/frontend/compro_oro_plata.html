@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Compro oro en Ripollet. Especializados en la compra de oro con tasación máxima y gratuita, pago inmediato, y más de 10 años en el sector, confianza y seguridad.">
     <title>Compro Oro y Plata en Ripollet | Tasación Inmediata y Pago al Contado | La Central del Oro</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Conexión anticipada a Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Precarga de la hoja de estilos de la fuente -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap">
     <style>
         body {
             margin: 0;
@@ -177,7 +183,7 @@
             <li><a href="/casa_empenos">Casa de Empeños</a></li>
             <li><a href="/oro_inversion">Oro de Inversión</a></li>
             <li><a href="/venta_joyas">Venta de Joyas</a></li>
-            <a href="{{ url_for('home') }}#map">¿Dónde Estamos?</a>
+            <li><a href="{{ url_for('home') }}#map">¿Dónde Estamos?</a></li>
         </ul>
     </nav>
 
