@@ -1,3 +1,7 @@
 flask
 gunicorn 
 requests
+Flask==2.3.5
+Flask-SQLAlchemy==3.0.5
+psycopg2-binary==2.9.7
+Werkzeug==2.3.8
