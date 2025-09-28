@@ -50,6 +50,49 @@ with app.app_context():
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
+from flask import request, flash
+
+@app.route("/admin/subir_joya", methods=["GET", "POST"])
+def subir_joya():
+    if request.method == "POST":
+        tipo = request.form["tipo"]
+        material = request.form["material"]
+        diamante = "diamante" in request.form
+        precio = request.form["precio"]
+        descripcion = request.form["descripcion"]
+        foto = request.files["foto"]
+
+        # Guardar la foto en static/uploads
+        filename = foto.filename
+        foto.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
+        ruta_foto = f"/static/uploads/{filename}"
+
+        nueva_joya = Joya(
+            tipo=tipo,
+            material=material,
+            diamante=diamante,
+            precio=precio,
+            descripcion=descripcion,
+            foto=ruta_foto
+        )
+
+        db.session.add(nueva_joya)
+        db.session.commit()
+        flash("Joya añadida correctamente")
+        return redirect("/admin/subir_joya")
+
+    return render_template("subir_joya.html")
+
+
+import os
+
+ADMIN_USER = os.environ.get("ADMIN_USER")
+ADMIN_PASS = os.environ.get("ADMIN_PASS")
+
+def check_auth(username, password):
+    return username == ADMIN_USER and password == ADMIN_PASS
+
+
 API_KEY = '0Q1V8UQTYXP825ZW'
 GOLD_URL = 'https://www.alphavantage.co/query'
 
