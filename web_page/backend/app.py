@@ -2,6 +2,48 @@ import os
 from flask import Flask, render_template, redirect, jsonify
 import requests
 
+import os
+from flask import Flask, render_template, redirect, jsonify, request, url_for
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import text, event
+
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "frontend"))
+
+app = Flask(__name__,
+            template_folder=os.path.join(BASE_DIR),
+            static_folder=os.path.join(BASE_DIR, 'static'))
+
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config["UPLOAD_FOLDER"] = "static/uploads"
+
+db = SQLAlchemy(app)
+
+# Modelo
+class Joya(db.Model):
+    id = db.Column(db.String(20), primary_key=True)
+    tipo = db.Column(db.String(50), nullable=False)
+    material = db.Column(db.String(50), nullable=False)
+    diamante = db.Column(db.Boolean, default=False)
+    precio = db.Column(db.Numeric(10,2), nullable=False)
+    descripcion = db.Column(db.Text)
+    foto = db.Column(db.Text)
+
+@event.listens_for(Joya, "before_insert")
+def generar_id(mapper, connection, target):
+    prefix = target.material[:2].lower() + target.tipo[:2].lower()
+    if target.diamante:
+        prefix += "d"
+    result = connection.execute(text("SELECT nextval('joya_seq')"))
+    counter = str(result.fetchone()[0]).zfill(3)
+    target.id = prefix + counter
+
+# 🔹 Crear tablas y secuencia al arrancar
+with app.app_context():
+    db.create_all()
+    db.session.execute(text("CREATE SEQUENCE IF NOT EXISTS joya_seq START 1"))
+    db.session.commit()
+
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
 API_KEY = '0Q1V8UQTYXP825ZW'
@@ -77,6 +119,10 @@ def gold_data():
 @app.route('/venta_joyas')
 def venta_joyas():
     return render_template('venta_joyas.html')
+
+@app.route('/catalogo_joyas')
+def catalogo_joyas():
+    return render_template('catalogo_joyas.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
