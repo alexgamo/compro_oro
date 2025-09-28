@@ -15,7 +15,7 @@ app = Flask(__name__,
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv(
     'DATABASE_URL',
-    'postgresql://postgres:tu_contraseña@localhost:5432/railway'
+    'postgresql://postgres:OLoVstzDuNTjWNnNPgAKXCtkXpcVrLdP@postgres.railway.internal:5432/railway'
 )
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
