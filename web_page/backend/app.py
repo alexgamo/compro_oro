@@ -13,7 +13,11 @@ app = Flask(__name__,
             template_folder=os.path.join(BASE_DIR),
             static_folder=os.path.join(BASE_DIR, 'static'))
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv(
+    'DATABASE_URL',
+    'postgresql://postgres:tu_contraseña@localhost:5432/railway'
+)
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config["UPLOAD_FOLDER"] = "static/uploads"
 
