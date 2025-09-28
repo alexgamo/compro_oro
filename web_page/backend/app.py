@@ -1,13 +1,16 @@
 import os
-from flask import Flask, render_template, redirect, jsonify
 import requests
-
-import os
-from flask import Flask, render_template, redirect, jsonify, request, url_for
+from flask import flash, Flask, render_template, redirect, jsonify, request, url_for
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import text, event
 
-BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "frontend"))
+ADMIN_USER = os.environ.get("ADMIN_USER")
+ADMIN_PASS = os.environ.get("ADMIN_PASS")
+
+API_KEY = '0Q1V8UQTYXP825ZW'
+GOLD_URL = 'https://www.alphavantage.co/query'
+
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../frontend"))
 
 app = Flask(__name__,
             template_folder=os.path.join(BASE_DIR),
@@ -48,9 +51,6 @@ with app.app_context():
     db.session.execute(text("CREATE SEQUENCE IF NOT EXISTS joya_seq START 1"))
     db.session.commit()
 
-BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-
-from flask import request, flash
 
 @app.route("/admin/subir_joya", methods=["GET", "POST"])
 def subir_joya():
@@ -83,22 +83,8 @@ def subir_joya():
 
     return render_template("subir_joya.html")
 
-
-import os
-
-ADMIN_USER = os.environ.get("ADMIN_USER")
-ADMIN_PASS = os.environ.get("ADMIN_PASS")
-
 def check_auth(username, password):
     return username == ADMIN_USER and password == ADMIN_PASS
-
-
-API_KEY = '0Q1V8UQTYXP825ZW'
-GOLD_URL = 'https://www.alphavantage.co/query'
-
-app = Flask(__name__,
-            template_folder=os.path.join(BASE_DIR, 'frontend'),
-            static_folder=os.path.join(BASE_DIR, 'frontend', 'static'))
 
 @app.route("/")
 def home():
