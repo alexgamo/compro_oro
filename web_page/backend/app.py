@@ -1,6 +1,6 @@
 import os
 import requests
-from flask import flash, Flask, render_template, redirect, jsonify, request, url_for
+from flask import flash, Flask, render_template, redirect, jsonify, request, url_for, Response
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import text, event
 
@@ -84,7 +84,23 @@ def subir_joya():
     return render_template("subir_joya.html")
 
 def check_auth(username, password):
+    """Verifica si el usuario y contraseña son correctos"""
     return username == ADMIN_USER and password == ADMIN_PASS
+
+def authenticate():
+    """Devuelve un 401 solicitando autenticación básica"""
+    return Response(
+        "Autenticación requerida", 401,
+        {"WWW-Authenticate": 'Basic realm="Login Required"'}
+    )
+
+@app.before_request
+def require_auth():
+    """Protege la ruta /admin/subir_joya con usuario/contraseña"""
+    if request.endpoint == "subir_joya":
+        auth = request.authorization
+        if not auth or not check_auth(auth.username, auth.password):
+            return authenticate()
 
 @app.route("/")
 def home():
