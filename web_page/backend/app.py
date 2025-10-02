@@ -181,7 +181,7 @@ def venta_joyas():
 @app.route('/catalogo_joyas')
 def catalogo_joyas():
     joyas = Joya.query.all()
-    return render_template('catalogo_joyas.html')
+    return render_template('catalogo_joyas.html', joyas=joyas)
 
 if __name__ == "__main__":
     app.run(debug=True)
