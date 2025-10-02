@@ -25,7 +25,10 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv(
 )
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config["UPLOAD_FOLDER"] = "static/uploads"
+UPLOAD_FOLDER = os.path.join(BASE_DIR, "static", "uploads")
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)  # crea la carpeta si no existe
+app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
+
 
 db = SQLAlchemy(app)
 
