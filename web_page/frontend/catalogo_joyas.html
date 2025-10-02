@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Catálogo Venta de Joyas en Ripollet. Venta de joyas de oro y plata. Pendientes. Collares. Anillos. Pulseras.">
+  <title>Catálogo de Joyas | La Central del Oro</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #1e1e1e;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .top-bar {
+      background: linear-gradient(90deg, #FFD700, #FFA500);
+      padding: 5px 5%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #121212;
+      font-weight: bold;
+    }
+    .top-bar a {
+      color: #000; 
+      text-decoration: none; 
+    }
+
+    .main-menu {
+      display: flex;
+      justify-content: center;
+      background: #1A1A1A;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .main-menu ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    .main-menu a {
+      color: #FFD700;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+    .main-menu a:hover {
+      color: #fff;
+    }
+
+    /* Filtros */
+    .filters {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 30px 0;
+    }
+    select {
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      background: #FFD700;
+      color: #121212;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Catálogo */
+    .catalog {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .item {
+      background: #2a2a2a;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.2s ease-in-out;
+    }
+    .item:hover {
+      transform: scale(1.05);
+    }
+    .item img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+    .item h3 {
+      margin: 10px 0 5px;
+      color: #FFD700;
+    }
+    .item p {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+    .price {
+      font-weight: bold;
+      color: #FFA500;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header class="top-bar">
+    <h2><a href="/#">La Central del Oro</a></h2>
+  </header>
+
+  <nav class="main-menu">
+    <ul>
+      <li><a href="/#">Inicio</a></li>
+      <li><a href="/compro_oro_plata">Compro Oro y Plata</a></li>
+      <li><a href="/casa_empenos">Casa de Empeños</a></li>
+      <li><a href="/oro_inversion">Oro de Inversión</a></li>
+      <li><a href="/venta_joyas">Venta de Joyas</a></li>
+      <li><a href="{{ url_for('home') }}#map">¿Dónde Estamos?</a></li>
+    </ul>
+  </nav>
+
+  <!-- Filtros -->
+  <section class="filters">
+    <select id="materialFilter">
+      <option value="all">Todos los materiales</option>
+      <option value="oro">Oro</option>
+      <option value="plata">Plata</option>
+    </select>
+    <select id="typeFilter">
+      <option value="all">Todos los tipos</option>
+      <option value="anillo">Anillos</option>
+      <option value="collar">Collares</option>
+      <option value="pendiente">Pendientes</option>
+      <option value="pulsera">Pulseras</option>
+    </select>
+  </section>
+
+  <!-- Catálogo -->
+  <section class="catalog">
+    {% for joya in joyas %}
+    <div class="item">
+      <img src="{{ joya.foto }}" alt="{{ joya.tipo }} de {{ joya.material }}">
+      <h3>{{ joya.tipo }} de {{ joya.material }}</h3>
+      {% if joya.diamante %}
+        <p>💎 Con diamante</p>
+      {% endif %}
+      {% if joya.descripcion %}
+        <p>{{ joya.descripcion }}</p>
+      {% endif %}
+      <p class="price">{{ joya.precio }} €</p>
+    </div>
+    {% endfor %}
+  </section>
+
+  <script>
+    const materialFilter = document.getElementById('materialFilter');
+    const typeFilter = document.getElementById('typeFilter');
+
+    function filterItems() {
+      const material = materialFilter.value.toLowerCase();
+      const type = typeFilter.value.toLowerCase();
+
+      document.querySelectorAll('.item').forEach(item => {
+        const text = item.querySelector('h3').textContent.toLowerCase();
+        const matchesMaterial = (material === 'all') || text.includes(material);
+        const matchesType = (type === 'all') || text.includes(type);
+        item.style.display = (matchesMaterial && matchesType) ? 'block' : 'none';
+      });
+    }
+
+    materialFilter.addEventListener('change', filterItems);
+    typeFilter.addEventListener('change', filterItems);
+  </script>
+</body>
+</html>
