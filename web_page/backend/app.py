@@ -7,6 +7,9 @@ from sqlalchemy import text, event
 ADMIN_USER = os.environ.get("ADMIN_USER")
 ADMIN_PASS = os.environ.get("ADMIN_PASS")
 
+print("DEBUG → ADMIN_USER:", ADMIN_USER)
+print("DEBUG → ADMIN_PASS:", ADMIN_PASS)
+
 API_KEY = '0Q1V8UQTYXP825ZW'
 GOLD_URL = 'https://www.alphavantage.co/query'
 
