@@ -19,6 +19,9 @@ app = Flask(__name__,
             template_folder=os.path.join(BASE_DIR),
             static_folder=os.path.join(BASE_DIR, 'static'))
 
+import os
+app.secret_key = os.urandom(24)
+
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv(
     'DATABASE_URL',
     'postgresql://postgres:OLoVstzDuNTjWNnNPgAKXCtkXpcVrLdP@postgres.railway.internal:5432/railway'
